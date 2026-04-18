@@ -1,0 +1,205 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.nasdanika.models.genmodel</groupId>
+	<artifactId>parent</artifactId>
+	<version>2026.2.0</version>
+	<packaging>pom</packaging>
+	<name>EMF GenModel Documentation</name>
+	<description>Generated documentation for EMF code generation model</description>
+	<url>https://genmodel.models.nasdanika.org/</url>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License 2.0</name>
+			<url>https://nasdanika.org/builds/master/eclipse-public-license-2.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/Nasdanika-Models/genmodel</url>
+	</scm>
+
+	<properties>
+		<core.version>2026.2.0</core.version>
+		<html.version>2026.2.0</html.version>
+		<models.ecore.version>2026.2.0</models.ecore.version>
+		<jacoco.version>0.8.14</jacoco.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+	</properties>	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.14.1</version>
+				<configuration>
+					<release>21</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.21.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.4.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <version>3.5.4</version>
+		        </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.12.0</version>
+			
+				<executions>
+					<execution>
+						<id>aggregate</id>
+						<goals>
+							<goal>aggregate</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+							<additionalOptions>-Xdoclint:none</additionalOptions>
+							<additionalOptions><![CDATA[--allow-script-in-comments]]></additionalOptions>
+							<linksource>true</linksource>	
+			        			<useStandardDocletOptions>true</useStandardDocletOptions>
+							<links>
+								<link>https://download.eclipse.org/modeling/emf/emf/javadoc/2.11/</link>
+								<link>https://picocli.info/apidocs/</link>
+							</links>
+							<header>
+								<![CDATA[
+								      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+								      <script>
+								        window.dataLayer = window.dataLayer || [];
+								        function gtag(){dataLayer.push(arguments);}
+								        gtag('js', new Date());
+      
+								        gtag('config', 'G-9BRJVLK8CC');
+								      </script>    
+								]]>
+							</header>
+						</configuration>
+					</execution>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+							<additionalOptions>-Xdoclint:none</additionalOptions>
+							<additionalOptions><![CDATA[--allow-script-in-comments]]></additionalOptions>
+							<linksource>true</linksource>	
+			        			<useStandardDocletOptions>true</useStandardDocletOptions>
+							<links>
+								<link>https://download.eclipse.org/modeling/emf/emf/javadoc/2.11/</link>
+								<link>https://picocli.info/apidocs/</link>
+							</links>
+							<header>
+								<![CDATA[
+								      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+								      <script>
+								        window.dataLayer = window.dataLayer || [];
+								        function gtag(){dataLayer.push(arguments);}
+								        gtag('js', new Date());
+      
+								        gtag('config', 'G-9BRJVLK8CC');
+								      </script>    
+								]]>
+							</header>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<organization>
+		<name>Nasdanika</name>
+		<url>https://nasdanika.org</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>pvlasov</id>
+			<name>Pavel Vlasov</name>
+			<email>Pavel.Vlasov@nasdanika.org</email>
+			<roles>
+				<role>Lead Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <version>6.0.1</version>
+		    <scope>test</scope>
+		</dependency>		
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>6.0.1</version>
+		    <scope>test</scope>
+		</dependency>		
+	</dependencies>
+
+	<modules>
+		<module>ecore</module>
+	</modules>
+
+	 <profiles>
+		<profile>
+			<id>central</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>3.2.8</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>	
+					<plugin>					
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>0.9.0</version>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>central</publishingServerId>
+							<autoPublish>true</autoPublish>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
+
