@@ -28,6 +28,7 @@ import org.nasdanika.drawio.Page;
 import org.nasdanika.drawio.Root;
 import org.nasdanika.drawio.style.Arrow;
 import org.nasdanika.drawio.style.ConnectionStyle;
+import org.nasdanika.drawio.style.Jump;
 import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.models.app.Action;
@@ -168,6 +169,7 @@ public class EcoreGenGenModelProcessorsFactory {
 						ConnectionStyle style = inheritance.getStyle();
 						style
 							.rounded(false)
+							.jump(Jump.ARC)
 							.endArrow(Arrow.BLOCK);
 							
 						style.put("edgeStyle", "orthogonalEdgeStyle");
@@ -182,7 +184,9 @@ public class EcoreGenGenModelProcessorsFactory {
 						if (ref.getEType() == targetEClassifier && shallCreateConnection(ref)) {
 							Connection refConnection = layer.createConnection(diagramNode, targetNode);
 							ConnectionStyle style = refConnection.getStyle();
-							style.rounded(false);
+							style
+								.rounded(false)
+								.jump(Jump.ARC);
 							
 							style.put("orthogonalLoop", "1");
 							style.put("jettySize", "1");
